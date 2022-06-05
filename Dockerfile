@@ -7,7 +7,8 @@ ENV TERM=xterm-256color \
     TZ="Europe/Moscow" \
     DISPLAY=unix:1
 RUN apt-get -qqy update \
-    && apt-get install -qqy xca
+    && apt-get install -qqy xca \
+    && apt-get clean -qqy
 VOLUME /xca
 WORKDIR /xca
-CMD ["/usr/bin/xca"]
+CMD ["/usr/bin/xca", "-d", "xca.xdb"]
